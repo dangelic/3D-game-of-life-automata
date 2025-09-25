@@ -118,6 +118,9 @@ export class World3D {
             case "states":
                 rgb = ColorMapper.get5StateColor(this.currentGenerationStates, x, y, z);
                 break;
+            default:
+                rgb = ColorMapper.mapPositionToColor(this.currentGenerationStates, x, y, z);
+                break;
         }
         this.cellMesh.setColorAt(meshI, new THREE.Color(rgb));
         this.cellMesh.instanceColor.needsUpdate = true; // Important to not forget this when handling InstancedMeshes
